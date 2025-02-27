@@ -1,69 +1,48 @@
-# Filtro de Imagem BMP
+# 📷 Recuperador de Imagens JPEG
 
-Este repositório contém a implementação de um programa em C que aplica diferentes filtros a imagens no formato BMP de 24 bits. O programa permite converter imagens para escala de cinza, refletir, desfocar e detectar bordas usando o operador Sobel.
+![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow)
+![C](https://img.shields.io/badge/Linguagem-C-blue)
+![License](https://img.shields.io/badge/Licen%C3%A7a-MIT-green)
 
-## Funcionalidades
+## 📝 Descrição
 
-O programa oferece quatro filtros principais:
+Este programa em C recupera imagens JPEG de um arquivo binário. Ele lê blocos de 512 bytes e detecta assinaturas de arquivos JPEG, extraindo e salvando cada imagem encontrada.
 
-1. **Escala de Cinza** - Converte a imagem em preto e branco, mantendo os níveis de brilho.
-2. **Reflexão** - Espelha a imagem horizontalmente.
-3. **Desfoque (Blur)** - Aplica o efeito "box blur", suavizando a imagem.
-4. **Detecção de Bordas** - Utiliza o operador Sobel para destacar contornos na imagem.
+## 🚀 Como Usar
 
-## Estrutura do Projeto
+1. Compile o programa:
+   ```sh
+   gcc -o recover recover.c
+   ```
 
-O projeto é composto pelos seguintes arquivos:
+2. Execute o programa passando o arquivo de imagem corrompido como argumento:
+   ```sh
+   ./recover arquivo.bin
+   ```
 
-- `bmp.h` - Define estruturas e tipos utilizados para manipular arquivos BMP.
-- `filter.c` - Contém a função `main` que gerencia a execução do programa.
-- `helpers.h` - Cabeçalho com a definição das funções auxiliares.
-- `helpers.c` - Implementa os filtros mencionados.
-- `Makefile` - Arquivo para compilar o programa.
-- `images/` - Contém imagens BMP de amostra para teste.
+3. O programa criará arquivos JPEG numerados (`000.jpg`, `001.jpg`, etc.) automaticamente.
 
-## Instalação e Uso
+## 🖥️ Requisitos
 
-### Passo 1: Clonar o Repositório
+- Compilador GCC
+- Ambiente Linux/macOS/Windows com WSL
+
+## ⚙️ Funcionamento
+
+🔹 Abre o arquivo binário de entrada 📂  
+🔹 Lê blocos de 512 bytes 🔄  
+🔹 Identifica a assinatura de arquivos JPEG 🖼️  
+🔹 Cria arquivos `.jpg` separadamente 📝  
+
+## 📌 Exemplo de Uso
+
 ```sh
-git clone https://github.com/seu-usuario/filter-bmp.git
-cd filter-bmp
+$ ./recover card.raw
 ```
 
-### Passo 2: Compilar o Programa
-```sh
-make filter
-```
+## 📜 Licença
 
-### Passo 3: Executar o Programa
-O programa pode ser executado com a seguinte sintaxe:
-```sh
-./filter [opção] imagem_entrada.bmp imagem_saida.bmp
-```
-
-Onde `[opção]` pode ser:
-- `-g` para escala de cinza
-- `-r` para reflexão
-- `-b` para desfoque
-- `-e` para detecção de bordas
-
-Exemplo de uso:
-```sh
-./filter -r imagem.bmp refletida.bmp
-```
+Este projeto está licenciado sob a licença MIT. 📝
 
 
-
-## Contribuição
-Contribuições são bem-vindas! Para contribuir:
-1. Fork este repositório.
-2. Crie uma branch (`git checkout -b minha-feature`).
-3. Implemente sua melhoria.
-4. Envie um pull request.
-
-## Licença
-Este projeto é licenciado sob a MIT License - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-
----
-Desenvolvido como parte do curso CS50 da Universidade de Harvard.
 
